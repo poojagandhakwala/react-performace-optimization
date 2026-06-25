@@ -65,11 +65,12 @@ export function VirtualizationDemo() {
                 <span className="font-mono">{numToRender}</span>
               </div>
               <Slider 
+                className="w-full"
                 value={[numToRender]} 
                 min={100} 
                 max={2000} 
                 step={100} 
-                onValueChange={(v) => setNumToRender(v[0])} 
+                onValueChange={(v : number | readonly number[]) => setNumToRender(Array.isArrray(v) ? v[0] : v)} 
               />
             </div>
           )}

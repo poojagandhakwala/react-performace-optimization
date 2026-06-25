@@ -19,7 +19,7 @@ export function CalculationDemo() {
     // Force work
     let sum = 0;
     for(let i = 0; i < 2000000; i++) {
-      sum += Math.sqrt(HEAVY_ARRAY[i % 5000]);
+      sum += Math.sqrt(HEAVY_ARRAY[i % 5000]) + nonce;
     }
     return sum;
   }, [nonce]);
@@ -29,7 +29,7 @@ export function CalculationDemo() {
     : (() => {
         let sum = 0;
         for(let i = 0; i < 2000000; i++) {
-          sum += Math.sqrt(HEAVY_ARRAY[i % 5000]);
+          sum += Math.sqrt(HEAVY_ARRAY[i % 5000] + nonce);
         }
         return sum;
       })();
@@ -41,7 +41,9 @@ export function CalculationDemo() {
   };
 
   const triggerChange = () => {
+    metrics.startBenchmark();
     setNonce(n => n + 1);
+    setTimeout(()=>metrics.endBenchmark(), 0)
   };
 
   return (

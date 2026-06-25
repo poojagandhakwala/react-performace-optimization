@@ -1,7 +1,7 @@
 import { cn } from '../../../lib/utils';
 import { PERFORMANCE_MODULES } from '../../data/modules';
 import { LayoutDashboard, Zap, List, Clock, Activity, Box, Search } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const iconMap: Record<string, any> = {
   LayoutDashboard,
@@ -15,11 +15,12 @@ const iconMap: Record<string, any> = {
 
 export function Sidebar() {
   const location = useLocation();
+  const navigate = useNavigate()
 
   return (
     <div className="w-64 border-r bg-card flex flex-col h-screen sticky top-0">
       <div className="p-6">
-        <h1 className="text-xl font-bold tracking-tight text-primary flex items-center gap-2">
+        <h1 role="button" onClick={() => navigate("/")} className="cursor-pointer text-xl font-bold tracking-tight text-primary flex items-center gap-2">
           <Activity className="w-6 h-6" />
           React Performance Optimization
         </h1>

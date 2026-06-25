@@ -107,7 +107,7 @@ export function DemoShell({ module, children, metrics }: DemoShellProps) {
       </div>
 
       <Card>
-        <Tabs defaultValue="after" className="w-full">
+        <Tabs defaultValue="before" className="w-full">
           <CardHeader className="border-b pb-0 flex flex-row items-center justify-between space-y-0 py-2">
             <TabsList>
               <TabsTrigger value="before">Before Fix</TabsTrigger>
